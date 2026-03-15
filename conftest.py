@@ -14,7 +14,7 @@ def base_url():
 @pytest.fixture
 def page():
     p = sync_playwright().start()
-    browser = p.chromium.launch(headless=False, slow_mo=500)
+    browser = p.chromium.launch(headless=True)
     page = browser.new_page()
 
     yield page
