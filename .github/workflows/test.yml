@@ -5,6 +5,7 @@ on:
     branches: [ main ]
 
 jobs:
+
   test:
 
     runs-on: ubuntu-latest
@@ -17,16 +18,22 @@ jobs:
     - name: Instalar Python
       uses: actions/setup-python@v5
       with:
-        python-version: '3.11'
+        python-version: "3.11"
 
     - name: Instalar dependencias
       run: |
         pip install -r requirements.txt
 
-    - name: Instalar navegadores Playwright
+    - name: Instalar Playwright
       run: |
         playwright install
 
-    - name: Ejecutar pruebas
+    - name: Ejecutar tests
       run: |
         pytest -v
+
+    - name: Guardar reportes
+      uses: actions/upload-artifact@v4
+      with:
+        name: reportes-qa
+        path: reports/
