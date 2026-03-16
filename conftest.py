@@ -14,8 +14,13 @@ def base_url():
 @pytest.fixture
 def page():
     p = sync_playwright().start()
-    browser = p.chromium.launch(headless=True)
- #   browser = p.chromium.launch(headless=False, slow_mo=500)
+    
+   # headless = os.getenv("CI") == "true"
+   # browser = p.chromium.launch (
+   # headless=True,
+   # args=["--disable-dev-shm-usage", "--no-sandbox"]
+   # )
+    browser = p.chromium.launch(headless=False, slow_mo=500)
     page = browser.new_page()
 
     yield page

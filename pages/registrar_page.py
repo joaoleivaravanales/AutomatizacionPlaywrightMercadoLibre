@@ -6,7 +6,7 @@ class RegistrarPage:
         self.page = page
 
         # LOCATORS
-        btnRegistrate = self.btn_crear_cuenta = page.locator('[data-link-id="registration"]')
+        self.btn_crear_cuenta = page.locator('[data-link-id="registration"]')
         self.txt_email = page.get_by_test_id("email")
         self.txt_telefono = page.get_by_test_id("phone")
         self.txt_nombre_completo = page.get_by_test_id("first_name")
@@ -19,7 +19,6 @@ class RegistrarPage:
         self.page.wait_for_load_state("domcontentloaded")
 
     def click_crear_cuenta(self):
-        self.page.wait_for_selector('[data-link-id="registration"]', timeout=20000)
         self.btn_crear_cuenta.click()
     
     def click_continuarCrear(self):
