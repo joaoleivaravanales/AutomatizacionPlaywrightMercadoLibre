@@ -7,7 +7,8 @@ class RegistrarPage:
 
         # LOCATORS
         self.btn_crear_cuenta = page.locator('[data-link-id="registration"]')
-        self.txt_email = page.get_by_test_id("email")
+      #  self.txt_email = page.get_by_test_id("email")
+        self.txt_email = self.page.locator('input[data-testid="email"]')
         self.txt_telefono = page.get_by_test_id("phone")
         self.txt_nombre_completo = page.get_by_test_id("first_name")
         self.txt_contrasena = page.get_by_test_id("password")
@@ -27,6 +28,7 @@ class RegistrarPage:
     def ingresar_datos_formularios(self, campo, valor):
         match campo:
             case "email":
+                self.page.wait_for_load_state("domcontentloaded")
                 self.txt_email.wait_for(state="visible", timeout=5000)
                 self.txt_email.click()
                 self.txt_email.fill(valor)
