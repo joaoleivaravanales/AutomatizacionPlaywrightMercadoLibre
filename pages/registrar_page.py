@@ -27,15 +27,19 @@ class RegistrarPage:
     def ingresar_datos_formularios(self, campo, valor):
         match campo:
             case "email":
+                self.txt_email.wait_for(state="visible", timeout=5000)
                 self.txt_email.click()
                 self.txt_email.fill(valor)
             case "telefono":
+                self.txt_telefono.wait_for(state="visible", timeout=5000)
                 self.txt_telefono.click()
                 self.txt_telefono.fill(valor)
             case "nombreCompleto":    
+                self.txt_nombre_completo.wait_for(state="visible", timeout=5000)
                 self.txt_nombre_completo.click()
                 self.txt_nombre_completo.fill(valor)
             case "contrasena":
+                self.txt_contrasena.wait_for(state="visible", timeout=5000)
                 self.txt_contrasena.click()
                 self.txt_contrasena.fill(valor)    
                 
