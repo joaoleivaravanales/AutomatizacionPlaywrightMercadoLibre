@@ -6,7 +6,7 @@ class RegistrarPage:
         self.page = page
 
         # LOCATORS
-        self.btn_crear_cuenta = page.get_by_role("link", name="Crea tu cuenta")
+        self.btn_crear_cuenta = page.get_by_role("link", name="Crea")
         self.txt_email = page.get_by_test_id("email")
         self.txt_telefono = page.get_by_test_id("phone")
         self.txt_nombre_completo = page.get_by_test_id("first_name")
@@ -16,6 +16,7 @@ class RegistrarPage:
 
     def open(self, base_url):
         self.page.goto(base_url)
+        self.page.wait_for_load_state("domcontentloaded")
 
     def click_crear_cuenta(self):
         self.page.wait_for_selector("text=Crea tu cuenta", timeout=20000)
