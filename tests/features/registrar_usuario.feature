@@ -12,7 +12,7 @@ Feature: Registro de usuario en mercadolibre
 
     Examples:
       | email              | telefono | nombreCompleto       | contrasena |
-      | eqqq11ao1@gmail.com  | 999999999 | Juan Silva | prueba.15475 |
+      | eqq31ao1@gmail.com  | 999999999 | Juan Silva | prueba.15475 |
      #| prueba123@gmail.com | 888888888 | Maria Lopez | prueba.15475 |
      #| pruebita@qa.cl  | 777777777 | Pedro Perez | prueba.15475 |
 

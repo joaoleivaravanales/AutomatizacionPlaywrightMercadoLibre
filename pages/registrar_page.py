@@ -4,19 +4,18 @@ class RegistrarPage:
 
     def __init__(self, page: Page):
         self.page = page
-
         # LOCATORS
         self.btn_crear_cuenta = page.locator('[data-link-id="registration"]')
       #  self.txt_email = page.get_by_test_id("email")
         self.txt_email = self.page.locator('input[data-testid="email"]')
-        self.txt_telefono = page.get_by_test_id("phone")
-        self.txt_nombre_completo = page.get_by_test_id("first_name")
-        self.txt_contrasena = page.get_by_test_id("password")
-        self.btn_continuar = page.get_by_test_id("submit")
+        self.txt_telefono = self.page.locator('input[data-testid="phone"]')
+        self.txt_nombre_completo = self.page.locator('input[data-testid="first_name"]')
+        self.txt_contrasena = self.page.locator('input[data-testid="password"]')
+        self.btn_continuar = self.page.locator('button[data-testid="submit"]')
         
 
     def open(self, base_url):
-        self.page.goto(base_url + "/registration")
+        self.page.goto(base_url)
         self.page.wait_for_load_state("domcontentloaded")
 
     def click_crear_cuenta(self):

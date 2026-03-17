@@ -4,18 +4,15 @@ import os
 from utils.reporte_pdf import generar_reporte_pdf
 from utils.screenshot import screenshots_steps
 
-
 @pytest.fixture(scope="session")
 def base_url():
     return "https://www.mercadolibre.cl"
 
-
 @pytest.fixture
-def page():
+def page(base_url):  # 👈 IMPORTANTE
 
     with sync_playwright() as p:
 
-        # Detecta si está corriendo en CI (GitHub Actions)
         headless = True if os.getenv("CI") else False
 
         browser = p.chromium.launch(
@@ -30,10 +27,11 @@ def page():
         context = browser.new_context()
         page = context.new_page()
 
+        page.goto(base_url) 
+
         yield page
 
         browser.close()
-
 
 @pytest.hookimpl(hookwrapper=True)
 def pytest_runtest_makereport(item, call):
