@@ -19,7 +19,6 @@ class RegistrarPage:
 
     def click_crear_cuenta(self):
         print(self.page.url)
-        self.page.screenshot(path="debug_ci.png")
         self.btn_crear_cuenta.wait_for(state="visible", timeout=10000)
         self.btn_crear_cuenta.click()
     

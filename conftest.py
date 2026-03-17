@@ -24,10 +24,12 @@ def page(base_url):  # 👈 IMPORTANTE
             ]
         )
 
-        context = browser.new_context()
+        context = browser.new_context(
+            viewport={"width": 1280, "height": 800},
+        )
         page = context.new_page()
 
-        page.goto(base_url) 
+        page.goto(base_url).wait_for_load_state("networkidle")
 
         yield page
 
