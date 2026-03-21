@@ -31,7 +31,6 @@ def page(base_url):  # 👈 IMPORTANTE
         page = context.new_page()
 
         page.goto(base_url)
-        page.wait_for_load_state("networkidle")
 
         yield page
 
